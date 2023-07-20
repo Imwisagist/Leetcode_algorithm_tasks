@@ -17,6 +17,7 @@ def isValid(s: str) -> bool:
                 return False
         else:
             return False
+
     return open_brackets == []
 
 

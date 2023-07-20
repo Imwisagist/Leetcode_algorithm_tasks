@@ -3,11 +3,12 @@ from typing import List
 
 
 def maxProfit(prices: List[int]) -> int:
-    profit = 0
-    buy = prices[0]
+    buy, profit = prices[0], 0
+
     for x in prices[1:]:
         buy = min(buy, x)
         profit = max(profit, x - buy)
+
     return profit
 
 
