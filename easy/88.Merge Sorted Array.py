@@ -2,10 +2,7 @@
 from typing import List
 
 
-def merge(nums1: List[int], m: int, nums2: List[int], n: int) -> None:
-    """
-    Do not return anything, modify nums1 in-place instead.
-    """
+def merge(nums1: List[int], m: int, nums2: List[int], n: int) -> List[int]:
     i, j, k = m - 1, n - 1, m + n - 1
 
     while j >= 0:
@@ -17,6 +14,7 @@ def merge(nums1: List[int], m: int, nums2: List[int], n: int) -> None:
             nums1[k] = nums2[j]
             k -= 1
             j -= 1
+
     return nums1
 
 

@@ -4,14 +4,14 @@ from typing import List
 
 def longestCommonPrefix(strs: List[str]) -> str:
     strs.sort()
-    first_word, last_word, result = strs[0], strs[-1], []
+    first_word, last_word, result = strs[0], strs[-1], ""
 
     for i in range(len(first_word)):
         if first_word[i] != last_word[i]:
-            return "".join(result)
-        result.append(first_word[i])
+            return result
+        result += first_word[i]
 
-    return "".join(result)
+    return result
 
 
 assert longestCommonPrefix(["ab", "a"]) == "a"

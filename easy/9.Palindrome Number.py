@@ -1,7 +1,7 @@
 # https://leetcode.com/problems/palindrome-number/
 
 def isPalindrome(x: int) -> bool:
-	result = 0
+	result: int = 0
 
 	if x < 0 or (x > 0 and x % 10 == 0):
 		return False
