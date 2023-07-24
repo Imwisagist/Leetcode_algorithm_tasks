@@ -1,21 +1,21 @@
 # https://leetcode.com/problems/majority-element/
-from collections import defaultdict
 from typing import List
 
 
 def majorityElement(nums: List[int]) -> int:
-    n, arr = len(nums) // 2, defaultdict(int)
+    count, candidate = 0, 0
 
     for num in nums:
-        arr[num] += 1
+        if count == 0:
+            candidate = num
 
-    for key, value in arr.items():
-        if value > n:
-            return key
+        if num == candidate:
+            count += 1
+        else:
+            count -= 1
 
-    return 0
+    return candidate
 
 
 assert majorityElement([3, 2, 3]) == 3
 assert majorityElement([2, 2, 1, 1, 1, 2, 2]) == 2
-assert majorityElement([2, 5, 1, 0, 15, 6, 23]) == 23

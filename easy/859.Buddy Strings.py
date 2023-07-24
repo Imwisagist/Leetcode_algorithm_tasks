@@ -2,26 +2,25 @@
 
 
 def buddyStrings(s: str, goal: str) -> bool:
-    n, i = len(s), 0
-    j: int = n - 1
+    r, l = len(s) - 1, 0
 
-    if len(goal) != n:
+    if len(goal) != r + 1:
         return False
 
     if s == goal:
         temp = set(s)
         return len(temp) < len(goal)
 
-    while i < j and s[i] == goal[i]:
-        i += 1
+    while l < r and s[l] == goal[l]:
+        l += 1
 
-    while j >= 0 and s[j] == goal[j]:
-        j -= 1
+    while r >= 0 and s[r] == goal[r]:
+        r -= 1
 
-    if i < j:
-        s_list = list(s)
-        s_list[i], s_list[j] = s_list[j], s_list[i]
-        s = ''.join(s_list)
+    if l < r:
+        arr: list = list(s)
+        arr[l], arr[r] = arr[r], arr[l]
+        s: str = ''.join(arr)
 
     return s == goal
 
