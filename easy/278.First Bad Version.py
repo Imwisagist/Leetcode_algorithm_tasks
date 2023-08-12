@@ -1,6 +1,8 @@
 # https://leetcode.com/problems/first-bad-version/
 # The isBadVersion API is already defined for you.
-# def isBadVersion(version: int) -> bool:
+
+def isBadVersion(version: int) -> bool:
+    pass
 
 def firstBadVersion(n: int) -> int:
     left, right = 1, n

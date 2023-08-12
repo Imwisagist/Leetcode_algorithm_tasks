@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/remove-element/
-from typing import List
 
+from typing import List
 
 def removeElement(nums: List[int], val: int) -> int:
     idx: int = 0

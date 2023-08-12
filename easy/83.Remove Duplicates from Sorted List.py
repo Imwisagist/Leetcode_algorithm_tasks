@@ -23,13 +23,10 @@ def deleteDuplicates(head: Optional[ListNode]) -> Optional[ListNode]:
     return head
 
 
-h = d = ListNode(1)
-h.next = ListNode(1)
-h = h.next
-h.next = ListNode(2)
-h = h.next
-h.next = ListNode(3)
-h = h.next
-h.next = ListNode(3)
+l1 = ListNode(1)
+l1.next = ListNode(1)
+l1.next.next = ListNode(2)
+l1.next.next.next = ListNode(3)
+l1.next.next.next.next = ListNode(3)
 
-deleteDuplicates(d)
+deleteDuplicates(l1)

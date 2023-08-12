@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/binary-search/
-from typing import List
 
+from typing import List
 
 def search(nums: List[int], target: int) -> int:
     left, right = 0, len(nums)

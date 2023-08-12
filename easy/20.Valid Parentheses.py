@@ -1,6 +1,5 @@
 # https://leetcode.com/problems/valid-parentheses/
 
-
 def isValid(s: str) -> bool:
     open_brackets: str = ""
 

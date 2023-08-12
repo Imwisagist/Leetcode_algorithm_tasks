@@ -1,6 +1,5 @@
 # https://leetcode.com/problems/valid-palindrome/
 
-
 def isPalindrome(s: str) -> bool:
     j, new_s = -1, ""
 

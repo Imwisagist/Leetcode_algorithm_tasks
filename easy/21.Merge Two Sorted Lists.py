@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/merge-two-sorted-lists/
+
 from typing import Optional
 
 # Definition for singly-linked list.
@@ -33,18 +34,14 @@ def mergeTwoLists(list1: Optional[ListNode], list2: Optional[ListNode]) -> Optio
     return dummy
 
 
-l1 = head1 = ListNode(1)
+l1 = ListNode(1)
 l1.next = ListNode(2)
-l1 = l1.next
-l1.next = ListNode(4)
-l1 = l1.next
+l1.next.next = ListNode(4)
 
-l2 = head2 = ListNode(1)
+l2 = ListNode(1)
 l2.next = ListNode(3)
-l2 = l2.next
-l2.next = ListNode(4)
-l2 = l2.next
+l2.next.next = ListNode(4)
 
-mergeTwoLists(head1, head2)
+mergeTwoLists(l1, l2)
 
 # My solution has been created on leetcode

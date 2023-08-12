@@ -23,12 +23,12 @@ def inorderTraversal(root: Optional[TreeNode]) -> List[int]:
 
     return result
 
-root = dummy = TreeNode(1)
+
+root = TreeNode(1)
 root.right = TreeNode(2)
-root = root.right
-root.left = TreeNode(3)
+root.right.left = TreeNode(3)
 
-root2 = dummy2 = TreeNode(1)
+root2 = TreeNode(1)
 
-assert inorderTraversal(dummy) == [1, 3, 2]
-assert inorderTraversal(dummy2) == [1]
+assert inorderTraversal(root) == [1, 3, 2]
+assert inorderTraversal(root2) == [1]

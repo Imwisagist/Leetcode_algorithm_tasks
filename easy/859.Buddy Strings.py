@@ -1,6 +1,5 @@
 # https://leetcode.com/problems/buddy-strings/
 
-
 def buddyStrings(s: str, goal: str) -> bool:
     r, l = len(s) - 1, 0
 

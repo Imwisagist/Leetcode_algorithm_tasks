@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/missing-number/
+
 from functools import reduce
 from typing import List
 

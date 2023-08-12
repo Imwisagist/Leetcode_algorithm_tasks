@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
-from typing import List
 
+from typing import List
 
 def maxProfit(prices: List[int]) -> int:
     buy, profit = prices[0], 0
