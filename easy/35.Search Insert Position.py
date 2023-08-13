@@ -2,7 +2,6 @@
 
 from typing import List
 
-
 def searchInsert(nums: List[int], target: int) -> int:
     low, high = 0, len(nums)
 

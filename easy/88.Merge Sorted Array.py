@@ -2,7 +2,6 @@
 
 from typing import List
 
-
 def merge(nums1: List[int], m: int, nums2: List[int], n: int) -> List[int]:
     i, j, k = m - 1, n - 1, m + n - 1
 

@@ -2,7 +2,6 @@
 
 from typing import List
 
-
 def majorityElement(nums: List[int]) -> int:
     count, candidate = 0, 0
 

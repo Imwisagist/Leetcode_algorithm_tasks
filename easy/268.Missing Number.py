@@ -3,7 +3,6 @@
 from functools import reduce
 from typing import List
 
-
 def missingNumber(nums: List[int]) -> int:
     return reduce(lambda x, y: x ^ y[0] ^ y[1], enumerate(nums), len(nums))
 
