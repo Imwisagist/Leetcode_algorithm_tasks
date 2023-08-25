@@ -1,7 +1,7 @@
 # https://leetcode.com/problems/nim-game/
 
 def canWinNim(n: int) -> bool:
-    return n%4 != 0
+    return n % 4 != 0
 
 assert canWinNim(4) is False
 assert canWinNim(1) is True
