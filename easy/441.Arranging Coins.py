@@ -1,19 +1,9 @@
 # https://leetcode.com/problems/arranging-coins/
 
+from math import sqrt
+
 def arrangeCoins(n: int) -> int:
-    left, right = 0, n
-
-    while left <= right:
-        middle = (right + left) // 2
-        curr = middle * (middle + 1) // 2
-        if curr == n:
-            return middle
-        if n < curr:
-            right = middle - 1
-        else:
-            left = middle + 1
-
-    return right
+    return int(sqrt(2 * n + 0.25) - 0.50)
 
 
 assert arrangeCoins(5) == 2
