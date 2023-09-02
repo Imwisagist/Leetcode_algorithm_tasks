@@ -3,7 +3,6 @@
 from typing import List
 
 def maximumWealth(accounts: List[List[int]]) -> int:
-    
     return max(sum(acc) for acc in accounts) 
 
 

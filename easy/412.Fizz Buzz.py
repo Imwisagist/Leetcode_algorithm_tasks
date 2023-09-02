@@ -3,18 +3,18 @@
 from typing import List
 
 def fizzBuzz(n: int) -> List[str]:
-        array: list = []
-        for i in range(1, n + 1):
-            if (i % 3 == 0) and (i % 5 == 0):
-                array.append("FizzBuzz")
-            elif i % 3 == 0:
-                array.append("Fizz")
-            elif i % 5 == 0:
-                array.append("Buzz")
-            else:
-                array.append(str(i))
+    array: list = []
+    for i in range(1, n + 1):
+        if (i % 3 == 0) and (i % 5 == 0):
+            array.append("FizzBuzz")
+        elif i % 3 == 0:
+            array.append("Fizz")
+        elif i % 5 == 0:
+            array.append("Buzz")
+        else:
+            array.append(str(i))
 
-        return array
+    return array
 
 
 assert fizzBuzz(3) == ["1", "2", "Fizz"]
