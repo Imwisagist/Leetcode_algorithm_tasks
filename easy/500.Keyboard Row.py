@@ -8,18 +8,13 @@ def findWords(words: List[str]) -> List[str]:
     for word in words:
         first_char = word[0].lower()
 
-        if first_char in fr:
-            chars = fr
-        elif first_char in sr:
-            chars = sr
-        else:
-            chars = tr
+        if first_char in fr: chars = fr
+        elif first_char in sr: chars = sr
+        else: chars = tr
 
         for j in word.lower():
-            if j not in chars:
-                break
-        else:
-            result.append(word)
+            if j not in chars: break
+        else: result.append(word)
 
     return result
 
