@@ -77,7 +77,7 @@ assert quick_sort([1, 63262346, 3, 5, 7, 9, 645, 43325, 43]) == [1, 3, 5, 7, 9, 
 
 
 from collections import deque
-
+# Поиск в ширину
 graph = {"you": ["alice","bob","claire"]}
 graph["bob"] = ["anuj", "peggy"]; graph["alice"] = ["peggy"]
 graph["claire"] = ["thom", "jonny"]; graph["anuj"] = []
@@ -99,3 +99,51 @@ def bfs(graph):
 
 
 assert bfs(graph) == "thom"
+
+
+from collections import defaultdict
+# Алгоритм Дейкстры
+graph = defaultdict(lambda:defaultdict(int))
+graph["start"]["a"] = 6; graph["start"]["b"] = 2
+graph["a"]["fin"] = 1; graph["b"]["a"] = 3
+graph["b"]["fin"] = 5
+
+costs = defaultdict(int)
+costs["a"] = 6; costs["b"] = 2
+costs["fin"] = float("inf")
+
+parents = defaultdict(str)
+parents["a"] = "start"; parents["b"] = "start"
+parents["fin"] = float("inf")
+
+processed = set()
+
+def find_lowest_cost_node(costs):
+    lowest_cost = float("inf")
+    lowest_cost_node = None
+
+    for node in costs:
+        cost = costs[node]
+
+        if cost < lowest_cost and node not in processed:
+            lowest_cost = cost; lowest_cost_node = node
+    
+    return lowest_cost_node
+
+node = find_lowest_cost_node(costs)
+
+while node:
+    cost = costs[node]
+    neighbors = graph[node]
+
+    for n in neighbors:
+        new_cost = cost + neighbors[n]
+
+        if costs[n] > new_cost:
+            costs[n] = new_cost
+            parents[n] = node
+    
+    processed.add(node)
+    node = find_lowest_cost_node(costs)
+
+assert costs["fin"] == 6
