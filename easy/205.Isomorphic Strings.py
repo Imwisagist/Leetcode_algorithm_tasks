@@ -4,11 +4,13 @@ def isIsomorphic(s: str, t: str) -> bool:
     chars: dict = {}
     
     for i in range(len(s)):
-        if s[i] not in chars:
-            if t[i] in chars.values(): return False
-            chars[s[i]] = t[i]
+        left, right = s[i], t[i]
+
+        if left not in chars:
+            if right in chars.values(): return False
+            chars[left] = right
         else:
-            if chars[s[i]]!=t[i]: return False
+            if chars[left] != right: return False
             
     return True
 

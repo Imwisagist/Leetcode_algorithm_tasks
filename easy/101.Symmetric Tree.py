@@ -10,16 +10,30 @@ class TreeNode:
         self.right = right
 
 
-def isSymmetric(root: Optional[TreeNode]) -> bool:
+def isSymmetric(root: Optional[TreeNode]) -> bool:  # Рекурсивное решение
     def is_sym(left, right) -> bool:
-            if not left and not right:
-                return True
-            if not left or not right:
-                return False
-            
-            return left.val == right.val and is_sym(left.left,right.right) and is_sym(left.right, right.left)
-        
+        if not left and not right: return True
+        if not left or not right: return False
+
+        return left.val == right.val and is_sym(left.left, right.right) and is_sym(left.right, right.left)
+
     return is_sym(root.left, root.right)
+
+
+def isSymmetric(root: Optional[TreeNode]) -> bool:  # Итеративное решение
+    stack = [root.left, root.right]
+
+    while stack:
+        left, right = stack.pop(), stack.pop()
+
+        if not left and not right: continue
+        if not left or not right: return False
+        if left.val != right.val: return False
+
+        stack.extend([left.left, right.right])
+        stack.extend([left.right, right.left])
+
+    return True
 
 
 tree1 = TreeNode(1)
