@@ -1,16 +1,11 @@
 # https://leetcode.com/problems/climbing-stairs/
 
 def climbStairs(n: int) -> int:
-    if 0 <= n <= 2:
-        return n
+    one, two = 1, 1
 
-    dp = [0] * (n + 1)
-    dp[1], dp[2] = 1, 2
+    for i in range(n-1): temp = one; one = one + two; two = temp
 
-    for i in range(3, n + 1):
-        dp[i] = dp[i - 1] + dp[i - 2]
-
-    return dp[n]
+    return one
 
 
 assert climbStairs(2) == 2

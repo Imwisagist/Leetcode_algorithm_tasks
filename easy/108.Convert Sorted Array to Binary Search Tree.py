@@ -11,19 +11,12 @@ class TreeNode:
 
 
 def sortedArrayToBST(nums: List[int]) -> Optional[TreeNode]:
-    root = TreeNode()
-    stack: list = [(0, len(nums), root)]
+    root = TreeNode(); stack = [(0, len(nums), root)]
 
     while stack:
-        i, j, node = stack.pop()
-        mid = (i + j) // 2
-        node.val = nums[mid]
+        i, j, node = stack.pop(); m = (i + j) // 2; node.val = nums[m]
         
-        if mid > i:
-            node.left = TreeNode()
-            stack.append((i, mid, node.left))
-        if mid+1 < j:
-            node.right = TreeNode()
-            stack.append((mid+1, j, node.right))
+        if m > i: node.left = TreeNode(); stack.append((i, m, node.left))
+        if m+1 < j: node.right = TreeNode(); stack.append((m+1, j, node.right))
             
     return root

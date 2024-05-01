@@ -12,16 +12,17 @@ class TreeNode:
 def maxPathSum(root: Optional[TreeNode]) -> int:
     res = root.val
 
-    def dfs(root):
+    def dfs(node):
         nonlocal res
 
-        if not root: return 0
+        if not node: return 0
 
-        l, r = max(dfs(root.left), 0), max(dfs(root.right), 0)
-        res = max(res, root.val + l + r)
+        l, r = max(dfs(node.left), 0), max(dfs(node.right), 0)
+        res = max(res, node.val + l + r)
 
-        return root.val + max(l, r)
+        return node.val + max(l, r)
 
     dfs(root)
 
     return res
+

@@ -17,22 +17,17 @@ def addTwoNumbers(l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[Li
         rest_part = 0
 
         if l1:
-            rest_part += l1.val
-            l1 = l1.next
+            rest_part += l1.val; l1 = l1.next
         if l2:
-            rest_part += l2.val
-            l2 = l2.next
-        rest_part += whole_part
-        whole_part = 0
+            rest_part += l2.val; l2 = l2.next
 
-        if rest_part > 9:
-            whole_part, rest_part = divmod(rest_part, 10)
+        rest_part += whole_part; whole_part = 0
 
-        l3.next = ListNode(rest_part)
-        l3 = l3.next
+        if rest_part > 9: whole_part, rest_part = divmod(rest_part, 10)
 
-    if whole_part:
-        l3.next = ListNode(whole_part)
+        l3.next = ListNode(rest_part); l3 = l3.next
+
+    if whole_part: l3.next = ListNode(whole_part)
 
     return dummy.next
 
