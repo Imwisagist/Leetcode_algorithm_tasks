@@ -12,10 +12,10 @@ class HitCounter:
         self.queue.append(timestamp)
 
     def getHits(self, timestamp: int) -> int:
-        while self.queue and timestamp - self.queue[0] >= 300:
-            self.queue.popleft()
+        while self.queue and timestamp - self.queue[0] >= 300: self.queue.popleft()
 
         return len(self.queue)
+
 
 # Your HitCounter object will be instantiated and called as such:
 # obj = HitCounter()

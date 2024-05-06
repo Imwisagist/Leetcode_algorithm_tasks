@@ -3,11 +3,10 @@ from typing import List
 
 
 def intervalIntersection(l1: List[List[int]], l2: List[List[int]]) -> List[List[int]]:
-    i, j, res = 0, 0, []
+    i, j, n1, n2, res = 0, 0, len(l1), len(l2), []
 
-    while i < len(l1) and j < len(l2):
-        start = max(l1[i][0], l2[j][0])
-        end = min(l1[i][1], l2[j][1])
+    while i < n1 and j < n2:
+        start = max(l1[i][0], l2[j][0]); end = min(l1[i][1], l2[j][1])
 
         if start <= end: res.append([start, end])
         if l1[i][1] < l2[j][1]: i += 1

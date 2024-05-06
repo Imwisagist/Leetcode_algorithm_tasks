@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/
-
 from typing import List, Optional
+
 
 # Definition for a binary tree node.
 class TreeNode:
@@ -14,9 +14,9 @@ def sortedArrayToBST(nums: List[int]) -> Optional[TreeNode]:
     root = TreeNode(); stack = [(0, len(nums), root)]
 
     while stack:
-        i, j, node = stack.pop(); m = (i + j) // 2; node.val = nums[m]
+        left, right, node = stack.pop(); m = (left + right) // 2; node.val = nums[m]
         
-        if m > i: node.left = TreeNode(); stack.append((i, m, node.left))
-        if m+1 < j: node.right = TreeNode(); stack.append((m+1, j, node.right))
+        if m > left: node.left = TreeNode(); stack.append((left, m, node.left))
+        if m+1 < right: node.right = TreeNode(); stack.append((m+1, right, node.right))
             
     return root

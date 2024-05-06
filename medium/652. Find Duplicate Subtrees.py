@@ -13,12 +13,12 @@ class TreeNode:
 def findDuplicateSubtrees(root: Optional[TreeNode]) -> List[Optional[TreeNode]]:
     d, res = defaultdict(int), []
 
-    def _preorder(r):
-        if not r: return "NULL"
+    def _preorder(node):
+        if not node: return "NULL"
 
-        subtree = ",".join([str(r.val), _preorder(r.left), _preorder(r.right)])
+        subtree = ",".join([str(node.val), _preorder(node.left), _preorder(node.right)])
 
-        if d[subtree] == 1: res.append(r)
+        if d[subtree] == 1: res.append(node)
 
         d[subtree] += 1
 

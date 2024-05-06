@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/island-perimeter/
-
 from typing import List
+
 
 def islandPerimeter(grid: List[List[int]]) -> int:
     result: int = 0
@@ -17,6 +17,6 @@ def islandPerimeter(grid: List[List[int]]) -> int:
     return result
 
 
-assert islandPerimeter([[0,1,0,0],[1,1,1,0],[0,1,0,0],[1,1,0,0]]) == 16
+assert islandPerimeter([[0, 1, 0, 0], [1, 1, 1, 0], [0, 1, 0, 0], [1, 1, 0, 0]]) == 16
 assert islandPerimeter([[1]]) == 4
-assert islandPerimeter([[1,0]]) == 4
+assert islandPerimeter([[1, 0]]) == 4
