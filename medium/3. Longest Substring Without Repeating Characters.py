@@ -2,18 +2,16 @@
 
 
 def lengthOfLongestSubstring(s: str) -> int:
-    n, se = len(s), set(); res = left = 0
+    se = set(); res = l_idx = 0
 
-    for right in range(n):
-        r_chr = s[right]
-
+    for r_idx, r_chr in enumerate(s):
         if r_chr not in se:
             se.add(r_chr)
-            res = max(res, right - left + 1)
+            res = max(res, r_idx - l_idx + 1)
         else:
             while r_chr in se:
-                se.remove(s[left])
-                left += 1
+                se.remove(s[l_idx])
+                l_idx += 1
 
             se.add(r_chr)
 
