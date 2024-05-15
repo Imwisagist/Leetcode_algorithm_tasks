@@ -7,30 +7,30 @@ def minWindow(s: str, t: str) -> str:
 
     if n < needcnt: return ""
 
-    d, res, start = defaultdict(int), (0, float('inf')), 0
+    d, res, left = defaultdict(int), (0, float('inf')), 0
 
     for ch in t: d[ch] += 1
 
-    for end, ch in enumerate(s):
-        if d[ch] > 0: needcnt -= 1
+    for right, ch in enumerate(s):
+        if d.get(ch, 0) > 0: needcnt -= 1
 
         d[ch] -= 1
 
-        if needcnt == 0:
+        if not needcnt:
             while True:
-                tmp = s[start]
+                tmp = s[left]
 
                 if d[tmp] == 0: break
 
-                d[tmp] += 1; start += 1
+                d[tmp] += 1; left += 1
 
-            if end - start < res[1] - res[0]: res = (start, end)
+            if right - left < res[1] - res[0]: res = (left, right)
 
-            d[s[start]] += 1; needcnt += 1; start += 1
+            d[s[left]] += 1; needcnt += 1; left += 1
 
     return '' if res[1] > n else s[res[0]:res[1] + 1]
 
 
-assert minWindow("ADOBECODEBANC", "ABC") == "BANC"
+assert minWindow("FDOBECODEBANC", "ABC") == "BANC"
 assert minWindow("a", "a") == "a"
 assert minWindow("a", "aa") == ""

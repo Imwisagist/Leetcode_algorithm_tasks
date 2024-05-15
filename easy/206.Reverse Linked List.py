@@ -10,12 +10,22 @@ class ListNode:
 
 
 def reverseList(head: Optional[ListNode]) -> Optional[ListNode]:
-    prev, cur = None, head
+    prev = None
 
-    while cur:
-        following = cur.next
-        cur.next = prev
-        prev = cur
-        cur = following
+    while head:
+        next = head.next
+        head.next = prev
+        prev = head
+        head = next
 
     return prev
+
+    # def dfs(prev, cur):
+    #     if not cur: return prev
+    #
+    #     next = cur.next
+    #     cur.next = prev
+    #
+    #     return dfs(cur, next)
+    #
+    # return dfs(None, head)

@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/palindrome-linked-list/
-
 from typing import Optional
+
 
 # Definition for singly-linked list.
 class ListNode:

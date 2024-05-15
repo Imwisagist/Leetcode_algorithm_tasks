@@ -4,20 +4,18 @@ from collections import defaultdict
 
 
 def partitionLabels(s: str) -> List[int]:
-    d1, d2, cnt, res = defaultdict(int), defaultdict(int), 0, []
-
-    for chr in s: d2[chr] += 1
+    d, res = defaultdict(int), []
+    l, r = -1, 0
 
     for i, v in enumerate(s):
-        d1[v] += 1; cnt += 1
+        d[v] = i
 
-        if d1[v] == d2[v]:
-            del d1[v]
+    for i, v in enumerate(s):
+        r = max(d[v], r)
 
-            if not d1:
-                res.append(cnt); cnt = 0
-
-    if cnt: res.append(cnt)
+        if r == i:
+            res.append(r - l)
+            l = r
 
     return res
 

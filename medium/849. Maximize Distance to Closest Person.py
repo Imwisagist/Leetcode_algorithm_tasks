@@ -4,13 +4,14 @@ from typing import List
 
 
 def maxDistToClosest(seats: List[int]) -> int:
-    res, dist = 0, seats.index(1)
+    res, last = 0, -1
 
-    for seat in seats:
-        if seat: res, dist = max(res, math.ceil(dist / 2)), 0
-        else: dist += 1
+    for first, v in enumerate(seats):
+        if v:
+            res = max(res, first if last < 0 else (first - last) // 2)
+            last = first
 
-    return max(res, dist)
+    return max(res, len(seats) - last - 1)
 
     # ones_arr = [i for i in range(len(seats)) if seats[i]]
     # dist_to_closest_per = 1

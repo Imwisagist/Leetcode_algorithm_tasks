@@ -4,13 +4,13 @@ from typing import List
 
 
 def findMaxConsecutiveOnes(nums: List[int]) -> int:
-    ans = curr = 0
+    ans = cur = 0
     prev = -1
 
     for x in nums:
-        if x: curr += 1
-        else: prev, curr = curr, 0
-        ans = max(ans, prev + 1 + curr)
+        if x: cur += 1
+        else: prev, cur = cur, 0
+        ans = max(ans, prev + 1 + cur)
 
     return ans
 

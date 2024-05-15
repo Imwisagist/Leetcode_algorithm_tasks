@@ -11,17 +11,11 @@ class TreeNode:
 
 
 def maxDepth(root: Optional[TreeNode]) -> int:
-    stack, result = [[root, 1]], 0
+    if not root: return 0
 
-    while stack:
-        node, depth = stack.pop()
+    left, right = maxDepth(root.left), maxDepth(root.right)
 
-        if node:
-            result = max(result, depth)
-            stack.append([node.left, depth + 1])
-            stack.append([node.right, depth + 1])
-        
-    return result
+    return 1 + max(left, right)
 
 
 tree1 = TreeNode(3)

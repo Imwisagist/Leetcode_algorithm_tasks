@@ -7,16 +7,12 @@ def minMeetingRooms(intervals: List[List[int]]) -> int:
 
     for start, end in intervals:
         scan_line.append((start, 1))
-        scan_line.append((end, 0))
+        scan_line.append((end, -1))
 
     scan_line.sort()
 
-    for time, type in scan_line:
-        if type:
-            cnt += 1
-        else:
-            cnt -= 1
-
+    for time, type_ in scan_line:
+        cnt += type_
         res = max(res, cnt)
 
     return res

@@ -1,13 +1,13 @@
 # https://leetcode.com/problems/remove-element/
-
 from typing import List
+
 
 def removeElement(nums: List[int], val: int) -> int:
     idx: int = 0
 
-    for i in range(len(nums)):
-        if nums[i] != val:
-            nums[idx] = nums[i]
+    for i, v in enumerate(nums):
+        if v != val:
+            nums[idx] = v
             idx += 1
 
     return idx
