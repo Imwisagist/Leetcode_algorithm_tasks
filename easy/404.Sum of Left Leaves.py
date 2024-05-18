@@ -15,9 +15,9 @@ def sumOfLeftLeaves(root: Optional[TreeNode]) -> int:
 
     while stack:
         node, is_left = stack.pop()
+
         if node:
-            if not node.left and not node.right and is_left:
-                sum += node.val
+            if not node.left and not node.right and is_left: sum += node.val
             else:
                 stack.append((node.left, True))
                 stack.append((node.right, False))

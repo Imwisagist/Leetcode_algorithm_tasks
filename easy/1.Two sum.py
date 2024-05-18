@@ -6,7 +6,7 @@ def twoSum(nums: List[int], target: int) -> List[int]:
     d: dict = {}
 
     for i, v in enumerate(nums):
-        if (complement := target - v) in d: return [d[complement], i]
+        if target - v in d: return [d[target - v], i]
 
         d[v] = i
 

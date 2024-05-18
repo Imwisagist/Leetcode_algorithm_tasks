@@ -3,8 +3,8 @@ from typing import List
 
 
 def trap(height: List[int]) -> int:
-    max_height = max(height); cur_height = cnt = 0
-    peak = height.index(max_height)
+    cur_height = cnt = 0
+    peak = height.index(max(height))
 
     for i in height[:peak]:
         if i >= cur_height: cur_height = i

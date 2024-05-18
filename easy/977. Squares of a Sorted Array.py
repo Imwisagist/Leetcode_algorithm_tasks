@@ -3,7 +3,9 @@ from typing import List
 
 
 def sortedSquares(nums: List[int]) -> List[int]:
-    n = len(nums);  p = r = n - 1; l, res = 0, [0]*n
+    n = len(nums)
+    p = r = n - 1
+    l, res = 0, [0]*n
 
     while l <= r:
         left, right = nums[l], nums[r]

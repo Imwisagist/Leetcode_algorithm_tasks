@@ -7,9 +7,9 @@ import heapq
 def topKFrequent(words: List[str], k: int):
     d = defaultdict(lambda: (0, ""))
 
-    for word in words: d[word] = (d[word][0] - 1, word)
+    for word in words: d[word] = d[word][0] - 1, word
 
-    return [i[1] for i in heapq.nsmallest(k, list(d.values()))]
+    return [w for _, w in heapq.nsmallest(k, d.values())]
 
 
 assert topKFrequent(["i", "love", "leetcode", "i", "love", "coding"], 2) == ["i", "love"]

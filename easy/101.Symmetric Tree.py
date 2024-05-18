@@ -12,8 +12,7 @@ class TreeNode:
 
 def isSymmetric(root: Optional[TreeNode]) -> bool:  # Рекурсивное решение
     def is_sym(left, right) -> bool:
-        if not left and not right: return True
-        if not left or not right: return False
+        if not left or not right: return left == right
 
         return left.val == right.val and is_sym(left.left, right.right) and is_sym(left.right, right.left)
 
