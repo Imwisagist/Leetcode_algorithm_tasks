@@ -3,29 +3,36 @@ from typing import List
 
 
 def removeInvalidParentheses(s: str) -> List[str]:
-    def dfs(s, lo, hi, res, d):
-        cnt = 0
+    res, s1 = [], set()
+    s1.add(s)
 
-        for i in range(hi, len(s)):
-            sym = s[i]
+    def check_valid(s):
+        left = right = 0
 
-            if sym in d: cnt += d[sym]
-            if cnt < 0:
-                for j in range(lo, i + 1):
-                    sym2 = s[j]
+        for chr in s:
+            if chr == "(": left += 1
+            elif chr == ")": right += 1
+            if right > left: return False
 
-                    if (sym2 not in d) or (j > lo and sym2 == s[j - 1]): continue
-                    if d[sym2] == -1:
-                        s_new = s[:j] + s[j + 1:]
-                        dfs(s_new, j, i, res, d)
-                return
+        return left == right
 
-        s_rev = s[::-1]
+    def dfs():
+        nonlocal s1
 
-        if d[')'] == -1: dfs(s_rev, 0, 0, res, d={'(': -1, ')': 1})
-        else: res.append(s_rev)
+        for string in s1:
+            if check_valid(string): res.append(string)
 
-    res = []
-    dfs(s, 0, 0, res, d={'(': 1, ')': -1})
+        if res: return res
+
+        s2 = set()
+
+        for string in s1:
+            for i, v in enumerate(string):
+                if v in "()": s2.add(string[:i] + string[i + 1:])
+
+        s1 = s2
+        dfs()
+
+    dfs()
 
     return res

@@ -7,14 +7,15 @@ class MinStack:
         self.stack = []
 
     def push(self, val: int) -> None:
-        prev = self.stack[-1][1] if self.stack else val
-        self.stack.append((val, val if val < prev else prev))
+        if not self.stack: self.stack += [val, val]
+        else: self.stack += [min(val, self.stack[-2]), val]
 
     def pop(self) -> None:
-        self.stack.pop()
+        del self.stack[-1]
+        del self.stack[-1]
 
     def top(self) -> int:
-        return self.stack[-1][0]
+        return self.stack[-1]
 
     def getMin(self) -> int:
-        return self.stack[-1][1]
+        return self.stack[-2]
